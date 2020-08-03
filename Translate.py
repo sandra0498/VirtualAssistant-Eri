@@ -15,10 +15,18 @@ def getVoice():
 
         try:
             sourcelang = variable.recognize_google(voice)
-            detection = translator.detect(sourcelang)
+            return sourcelang
+            # detection = translator.detect(sourcelang)
 
         except:
             engine.say("I am sorry I could not understand")
+            return 0
+
+def getTranslation():
+
+    translation = translator.translate()
+
+
 
 
 if __name__ == "_main_":
@@ -27,4 +35,9 @@ if __name__ == "_main_":
 
     while 1:
         engine.say('What would you like to translate?')
+        command = getVoice()
+        if command == 0:
+            continue
+
+        
 
