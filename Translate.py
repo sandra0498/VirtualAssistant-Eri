@@ -9,8 +9,9 @@ voice_ID = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN
 engine.setProperty('voice', voice_ID)
 
 
-exits = ['bye', 'exit', 'no', 'nothing']
+exits = ['bye', 'exit', 'no', 'nothing', 'done']
 
+languagesSupported = {'spanish': 'es', 'portuguese (brazil)': 'pt-BR', 'french': 'fr'}
 
 def eriSpeaks(phrase):
     print(phrase)
@@ -35,21 +36,36 @@ def getVoice():
             return 0
 
 
-def getTranslation():
-    translation = translator.translate()
+def getTranslation(phrase):
+    eriSpeaks('To what language?')
+    destination = getDestination()
+    translation = translator.translate(phrase, dest=destination)
+    result = "Your translation is {0}".format(translation.text)
+    eriSpeaks(result)
+
+
+def getDestination():
+    lang = str(getVoice()).lower()
+    langCode = languagesSupported.pop(lang)
+    return langCode
+
+
+
 
 
 def main():
 
     while 1:
         eriSpeaks('what would you like to translate?')
-        command = getVoice()
+        command = str(getVoice()).lower()
         if command == 0:
             continue
 
         if any(word in command for word in exits):
             eriSpeaks('okay, goodbye!')
             break
+
+        getTranslation(command)
 
 
 if __name__ == "__main__":
