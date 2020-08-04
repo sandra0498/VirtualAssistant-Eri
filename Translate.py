@@ -53,7 +53,7 @@ def getDestination():
     lang = str(getVoice()).lower()
     print("destination language is {0}".format(lang))
 
-    if lang == 0:  # if input is inaudible 
+    if lang == 0:  # if input is inaudible
         eriSpeaks("Could not get the destination language")
         return 0
 
@@ -61,6 +61,7 @@ def getDestination():
         langCode = languagesSupported.pop(lang)
         return langCode
     except KeyError:
+        print('Language is not included, try another?')
         return 0
 
 
