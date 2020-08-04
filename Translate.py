@@ -1,3 +1,10 @@
+"""
+@author: Sandra Chavez
+Purpose: This program will prompt a question of what phrase
+    to translate and to what language.
+@:argument: audio input via users' microphone
+"""
+
 from googletrans import Translator
 import pyttsx3 as ts
 import speech_recognition as SR
@@ -8,15 +15,27 @@ translator = Translator()
 voice_ID = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0'
 engine.setProperty('voice', voice_ID)
 
-
 exits = ['bye', 'exit', 'no', 'nothing', 'done']
 
 languagesSupported = {'spanish': 'es', 'portuguese': 'pt', 'french': 'fr', 'italian': 'it'}
+
+"""
+@:param phrase: a string that will be converted 
+    from text to speech 
+"""
+
 
 def eriSpeaks(phrase):
     print(phrase)
     engine.say(phrase)
     engine.runAndWait()
+
+
+""" 
+Gets the audio from the users' microphone 
+@:returns a string of the audio 
+@:return 0 if the input is audible  
+"""
 
 
 def getVoice():
@@ -35,6 +54,11 @@ def getVoice():
         except:
             eriSpeaks("I am sorry I could not understand")
             return 0
+
+
+"""
+Gets the translation of the input 
+"""
 
 
 def getTranslation(phrase):
@@ -58,7 +82,11 @@ def getDestination():
 
     print("destination language is {0}".format(lang))
     lang = str(lang).lower()
-    
+
+    """ if lang is not zero, it can be guaranteed that it will be a string
+     then we can use the lower() function
+     """
+
     try:
         langCode = languagesSupported.pop(lang)
         return langCode
@@ -67,10 +95,7 @@ def getDestination():
         return 0
 
 
-
-
 def main():
-
     while 1:
         eriSpeaks('what would you like to translate?')
         command = str(getVoice()).lower()
