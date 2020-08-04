@@ -11,7 +11,7 @@ engine.setProperty('voice', voice_ID)
 
 exits = ['bye', 'exit', 'no', 'nothing', 'done']
 
-languagesSupported = {'spanish': 'es', 'portuguese': 'pt', 'french': 'fr'}
+languagesSupported = {'spanish': 'es', 'portuguese': 'pt', 'french': 'fr', 'italian': 'it'}
 
 def eriSpeaks(phrase):
     print(phrase)
@@ -40,6 +40,10 @@ def getVoice():
 def getTranslation(phrase):
     eriSpeaks('To what language?')
     destination = getDestination()
+    if destination == 0:
+        # ask again for the language 
+        destination = getDestination()
+
     translation = translator.translate(phrase, dest=destination)
     result = "Your translation is {0}".format(translation.text)
     eriSpeaks(result)
@@ -47,6 +51,9 @@ def getTranslation(phrase):
 
 def getDestination():
     lang = str(getVoice()).lower()
+    if lang == 0:
+        eriSpeaks("Could not get the destination language")
+        return 0
     print("destination language is {0}".format(lang))
     langCode = languagesSupported.pop(lang)
     return langCode
