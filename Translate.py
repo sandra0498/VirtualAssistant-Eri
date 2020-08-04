@@ -50,13 +50,15 @@ def getTranslation(phrase):
 
 
 def getDestination():
-    lang = str(getVoice()).lower()
-    print("destination language is {0}".format(lang))
+    lang = getVoice()
 
     if lang == 0:  # if input is inaudible
         eriSpeaks("Could not get the destination language")
         return 0
 
+    print("destination language is {0}".format(lang))
+    lang = str(lang).lower()
+    
     try:
         langCode = languagesSupported.pop(lang)
         return langCode
