@@ -61,7 +61,7 @@ def getDestination():
         langCode = languagesSupported.pop(lang)
         return langCode
     except KeyError:
-        print('Language is not included, try another?')
+        eriSpeaks('Language is not included, try another?')
         return 0
 
 
