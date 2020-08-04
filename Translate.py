@@ -11,7 +11,7 @@ engine.setProperty('voice', voice_ID)
 
 exits = ['bye', 'exit', 'no', 'nothing', 'done']
 
-languagesSupported = {'spanish': 'es', 'portuguese (brazil)': 'pt-BR', 'french': 'fr'}
+languagesSupported = {'spanish': 'es', 'portuguese': 'pt', 'french': 'fr'}
 
 def eriSpeaks(phrase):
     print(phrase)
@@ -28,6 +28,7 @@ def getVoice():
 
         try:
             sourcelang = variable.recognize_google(voice)
+            print("spoken input: {0}".format(sourcelang))
             return sourcelang
             # detection = translator.detect(sourcelang)
 
@@ -46,10 +47,9 @@ def getTranslation(phrase):
 
 def getDestination():
     lang = str(getVoice()).lower()
+    print("destination language is {0}".format(lang))
     langCode = languagesSupported.pop(lang)
     return langCode
-
-
 
 
 
