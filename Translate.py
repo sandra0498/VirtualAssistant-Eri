@@ -23,8 +23,6 @@ languagesSupported = {'spanish': 'es', 'portuguese': 'pt', 'french': 'fr', 'ital
 @:param phrase: a string that will be converted 
     from text to speech 
 """
-
-
 def eriSpeaks(phrase):
     print(phrase)
     engine.say(phrase)
@@ -36,8 +34,6 @@ Gets the audio from the users' microphone
 @:returns a string of the audio 
 @:return 0 if the input is audible  
 """
-
-
 def getVoice():
     variable = SR.Recognizer()
     with SR.Microphone() as source:
@@ -51,16 +47,16 @@ def getVoice():
             return sourcelang
             # detection = translator.detect(sourcelang)
 
-        except:
+        except Exception:
             eriSpeaks("I am sorry I could not understand")
             return 0
 
 
 """
 Gets the translation of the input 
+@:param phrase: users' audio input 
+@:type string 
 """
-
-
 def getTranslation(phrase):
     eriSpeaks('To what language?')
     destination = getDestination()
