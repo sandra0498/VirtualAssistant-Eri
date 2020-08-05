@@ -24,6 +24,8 @@ languagesSupported = {'spanish': 'es', 'portuguese': 'pt', 'french': 'fr', 'ital
 @:param phrase: a string that will be converted 
     from text to speech 
 """
+
+
 def eriSpeaks(phrase):
     print(phrase)
     engine.say(phrase)
@@ -35,6 +37,8 @@ Gets the audio from the users' microphone
 @:returns a string of the audio 
 @:return 0 if the input is audible  
 """
+
+
 def getVoice():
     variable = SR.Recognizer()
     with SR.Microphone() as source:
@@ -58,6 +62,8 @@ Gets the translation of the input
 @:param phrase: users' audio input 
 @:type string 
 """
+
+
 def getTranslation(phrase):
     eriSpeaks('To what language?')
     destination = getDestination()
@@ -68,6 +74,9 @@ def getTranslation(phrase):
     translation = translator.translate(phrase, dest=destination)
     result = "Your translation is {0}".format(translation.text)
     eriSpeaks(result)
+    speakTranslation(translation, language=destination)
+
+    # eriSpeaks("The prounciation is {0}".format(translation.pronunciation))
 
 
 """
@@ -75,6 +84,8 @@ gets the destination language
 @:returns the language code of the intended language 
 @:return 0 if the language is not found / input is audible 
 """
+
+
 def getDestination():
     lang = getVoice()
 
@@ -96,6 +107,20 @@ def getDestination():
         eriSpeaks('Language is not included, try another?')
         return 0
 
+
+def speakTranslation(translation, language):
+    # dictonary containing the language codes and the microsoft voices 
+    # that suit the language 
+    pronun = {'es':
+                  'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_ES-MX_SABINA_11.0',
+              'de':
+                  'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_DE-DE_HEDDA_11.0',
+              'pt':
+                  'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_PT-BR_MARIA_11.0',
+              'it': 
+                  'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_IT-IT_ELSA_11.0',
+              'fr':
+                  'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_FR-FR_HORTENSE_11.0'}
 
 
 def main():
