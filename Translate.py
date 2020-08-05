@@ -88,7 +88,7 @@ def getDestination():
     lang = getVoice()
 
     if lang == 0:  # if input is inaudible
-        eriSpeaks("Could not get the destination language")
+        eriSpeaks("input was not heard correctly, what language?")
         return 0
 
     print("destination language is {0}".format(lang))
