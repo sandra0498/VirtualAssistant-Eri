@@ -12,8 +12,6 @@ import speech_recognition as SR
 engine = ts.init()
 translator = Translator()
 
-voice_ID = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0'
-engine.setProperty('voice', voice_ID)
 
 exits = ['bye', 'exit', 'no', 'nothing', 'done']
 
@@ -72,8 +70,8 @@ def getTranslation(phrase):
         destination = getDestination()
 
     translation = translator.translate(phrase, dest=destination)
-    result = "Your translation is {0}".format(translation.text)
-    eriSpeaks(result)
+    # result = "Your translation is {0}".format(translation.text)
+    # eriSpeaks(result)
     speakTranslation(translation, language=destination)
 
     # eriSpeaks("The prounciation is {0}".format(translation.pronunciation))
@@ -99,7 +97,6 @@ def getDestination():
     """ if lang is not zero, it can be guaranteed that it will be a string
      then we can use the lower() function
      """
-
     try:
         langCode = languagesSupported.pop(lang)
         return langCode
@@ -109,22 +106,33 @@ def getDestination():
 
 
 def speakTranslation(translation, language):
-    # dictonary containing the language codes and the microsoft voices 
-    # that suit the language 
+    # dictonary containing the language codes and the microsoft voices
+    # that suit the language
     pronun = {'es':
                   'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_ES-MX_SABINA_11.0',
               'de':
                   'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_DE-DE_HEDDA_11.0',
               'pt':
                   'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_PT-BR_MARIA_11.0',
-              'it': 
+              'it':
                   'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_IT-IT_ELSA_11.0',
               'fr':
                   'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_FR-FR_HORTENSE_11.0'}
 
+    if language in pronun:
+        MVoice = pronun.get(language)
+        eriSpeaks('Your translation is...')
+        engine.setProperty('voice', MVoice)
+        eriSpeaks(translation.text)
+
+
+
 
 def main():
     while 1:
+        voice_ID = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0'
+        engine.setProperty('voice', voice_ID)
+
         eriSpeaks('what would you like to translate?')
         command = str(getVoice()).lower()
         if command == 0:
