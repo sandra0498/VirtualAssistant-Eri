@@ -17,7 +17,8 @@ engine.setProperty('voice', voice_ID)
 
 exits = ['bye', 'exit', 'no', 'nothing', 'done']
 
-languagesSupported = {'spanish': 'es', 'portuguese': 'pt', 'french': 'fr', 'italian': 'it'}
+languagesSupported = {'spanish': 'es', 'portuguese': 'pt', 'french': 'fr', 'italian': 'it',
+                      'russian': 'ru', 'korean': 'ko', 'german': 'de'}
 
 """
 @:param phrase: a string that will be converted 
@@ -69,6 +70,11 @@ def getTranslation(phrase):
     eriSpeaks(result)
 
 
+"""
+gets the destination language 
+@:returns the language code of the intended language 
+@:return 0 if the language is not found / input is audible 
+"""
 def getDestination():
     lang = getVoice()
 
@@ -89,6 +95,7 @@ def getDestination():
     except KeyError:
         eriSpeaks('Language is not included, try another?')
         return 0
+
 
 
 def main():
