@@ -12,7 +12,6 @@ import speech_recognition as SR
 engine = ts.init()
 translator = Translator()
 
-
 exits = ['bye', 'exit', 'no', 'nothing', 'done']
 
 languagesSupported = {'spanish': 'es', 'portuguese': 'pt', 'french': 'fr', 'italian': 'it',
@@ -82,8 +81,6 @@ gets the destination language
 @:returns the language code of the intended language 
 @:return 0 if the language is not found / input is audible 
 """
-
-
 def getDestination():
     lang = getVoice()
 
@@ -105,6 +102,12 @@ def getDestination():
         return 0
 
 
+"""
+outputs the translated text in its native language 
+to speak with accurate pronunciation 
+@param translation - the translated text 
+@:param language - the language code 
+"""
 def speakTranslation(translation, language):
     # dictonary containing the language codes and the microsoft voices
     # that suit the language
@@ -123,9 +126,8 @@ def speakTranslation(translation, language):
         MVoice = pronun.get(language)
         eriSpeaks('Your translation is...')
         engine.setProperty('voice', MVoice)
-        
+
     eriSpeaks(translation.text)
-    
 
 
 def main():
