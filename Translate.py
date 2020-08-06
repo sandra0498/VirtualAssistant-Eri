@@ -123,13 +123,14 @@ def speakTranslation(translation, language):
         MVoice = pronun.get(language)
         eriSpeaks('Your translation is...')
         engine.setProperty('voice', MVoice)
-        eriSpeaks(translation.text)
-
-
+        
+    eriSpeaks(translation.text)
+    
 
 
 def main():
     while 1:
+        # default voice 
         voice_ID = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0'
         engine.setProperty('voice', voice_ID)
 
