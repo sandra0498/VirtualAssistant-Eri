@@ -14,6 +14,8 @@ translator = Translator()
 
 exits = ['bye', 'exit', 'no', 'nothing', 'done']
 
+# only have these languages installed in computer for text-to-speech 
+# (excluding russian and korean) 
 languagesSupported = {'spanish': 'es', 'portuguese': 'pt', 'french': 'fr', 'italian': 'it',
                       'russian': 'ru', 'korean': 'ko', 'german': 'de'}
 
@@ -21,8 +23,6 @@ languagesSupported = {'spanish': 'es', 'portuguese': 'pt', 'french': 'fr', 'ital
 @:param phrase: a string that will be converted 
     from text to speech 
 """
-
-
 def eriSpeaks(phrase):
     print(phrase)
     engine.say(phrase)
@@ -132,7 +132,7 @@ def speakTranslation(translation, language):
 
 def main():
     while 1:
-        # default voice 
+        # default voice
         voice_ID = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0'
         engine.setProperty('voice', voice_ID)
 
