@@ -16,13 +16,14 @@ def erispeaks(phrase):
     engine.runAndWait()
 
 
-def getScreenshot(input):
-    if substring in input:
-        ss = p.screenshot('screenshot.png')
+def getScreenshot(voice):
+    num = 1
+    if any(word in voice for word in indicators):
+        ss = p.screenshot('screenshot{0}.png'.format(num))
         timestamp = 'screenshot taken in ', t.strftime("%I:%M:%S")
         erispeaks(timestamp)
-    else:
-        pass
+
+
 
 def getAudio():
     variable = SR.Recognizer()
@@ -40,28 +41,28 @@ def getAudio():
         except SR.UnknownValueError:
             # either did not speak into the mic/ could not understand the input
             print('Could not process the audio!')
-            return 0 
+            return 0
 
 def main():
     while 1:
         voiceInput = getAudio()
         if voiceInput == 0:
             continue
-            
+
         voiceInput = str(voiceInput).lower()
-        
+
         if any(word in voiceInput for word in exits):
             erispeaks('Done taking screenshots')
             break
-    
-        getScreenshot(voiceInput)    
-        
-        
-        
-        
-        
 
-        
+        getScreenshot(voiceInput)
+
+
+
+
+
+
+
 
 
 
