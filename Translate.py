@@ -14,8 +14,8 @@ translator = Translator()
 
 exits = ['bye', 'exit', 'no', 'nothing', 'done']
 
-# only have these languages installed in computer for text-to-speech 
-# (excluding russian and korean) 
+# only have these languages installed in computer for text-to-speech
+# (excluding russian and korean)
 languagesSupported = {'spanish': 'es', 'portuguese': 'pt', 'french': 'fr', 'italian': 'it',
                       'russian': 'ru', 'korean': 'ko', 'german': 'de'}
 
@@ -64,7 +64,7 @@ Gets the translation of the input
 def getTranslation(phrase):
     eriSpeaks('To what language?')
     destination = getDestination()
-    if destination == 0:
+    if destination == 0 or destination == -1:
         # ask again for the language
         destination = getDestination()
 
@@ -86,7 +86,7 @@ def getDestination():
 
     if lang == 0:  # if input is inaudible
         eriSpeaks("input was not heard correctly, what language?")
-        return 0
+        return -1
 
     print("destination language is {0}".format(lang))
     lang = str(lang).lower()
