@@ -22,6 +22,7 @@ def getScreenshot(voice):
         ss = p.screenshot('screenshot{0}.png'.format(num))
         timestamp = 'screenshot taken in ', t.strftime("%I:%M:%S")
         erispeaks(timestamp)
+        num += 1
 
 
 
@@ -29,9 +30,9 @@ def getAudio():
     variable = SR.Recognizer()
 
     with SR.Microphone() as receiver:
-        print('speak now...')
+        erispeaks('listening')
         audioInput = variable.listen(receiver, phrase_time_limit=5)
-        print('done')
+        erispeaks('done listening')
 
         try:
             textOutput = variable.recognize_google(audioInput)
@@ -45,6 +46,9 @@ def getAudio():
 
 def main():
     while 1:
+        # default voice
+        voice_ID = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0'
+        engine.setProperty('voice', voice_ID)
         voiceInput = getAudio()
         if voiceInput == 0:
             continue
