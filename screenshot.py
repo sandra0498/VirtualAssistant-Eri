@@ -5,9 +5,7 @@ import time as t
 
 engine = ts.init()
 
-substring = 'important'
-
-indicators = ['important', 'take screenshot', 'need to remember this']
+indicators = ['important', 'take screenshot', 'take a screenshot', 'need to remember this']
 exits = ['no more', 'exit', 'done']
 
 def erispeaks(phrase):
@@ -60,6 +58,13 @@ def main():
             break
 
         getScreenshot(voiceInput)
+
+
+
+
+
+
+
 
 
 
