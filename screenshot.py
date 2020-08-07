@@ -1,15 +1,27 @@
-import pyautogui as p
-import speech_recognition as SR
-import pyttsx3 as ts
-import time as t
+"""
+@author: Sandra Chavez
+Purpose: This program takes a screenshot by users' request
+@:argument voice input 
+"""
+
+import pyautogui as p  # module to take the screenshot 
+import speech_recognition as SR  # module to recognize the microphone's input
+import pyttsx3 as ts  # module for text to speech 
+import time as t  # module to give the timestamp 
 
 engine = ts.init()
 
+# words that indicate when screenshot will be taken
 indicators = ['important', 'take screenshot', 'take a screenshot', 'need to remember this']
+
+# words/phrases that break the while loop
 exits = ['no more', 'exit', 'done']
 
 
-
+"""
+@:param phrase: string that will soon be 
+    converted from text to speech 
+"""
 def erispeaks(phrase):
     print(phrase)
     engine.say(phrase)
