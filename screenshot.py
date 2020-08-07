@@ -19,11 +19,11 @@ def erispeaks(phrase):
 def getScreenshot(voice, num):
 
     if any(word in voice for word in indicators):
-        if num > 0: 
+        if num > 0:
             ss = p.screenshot('screenshot{0}.png'.format(num))
         else:
             first = p.screenshot('screenshot.png')
-            
+
         timestamp = 'screenshot taken in ', t.strftime("%I:%M:%S")
         erispeaks(timestamp)
         return 'success'
