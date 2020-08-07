@@ -9,23 +9,22 @@ indicators = ['important', 'take screenshot', 'take a screenshot', 'need to reme
 exits = ['no more', 'exit', 'done']
 
 
+
 def erispeaks(phrase):
     print(phrase)
     engine.say(phrase)
     engine.runAndWait()
 
 
-def getScreenshot(voice, num):
+def getScreenshot(voice):
 
     if any(word in voice for word in indicators):
-        if num > 0:
-            ss = p.screenshot('screenshot{0}.png'.format(num))
-        else:
             ss = p.screenshot('screenshot.png')
+            timestamp = 'screenshot taken in ', t.strftime("%I:%M:%S")
+            erispeaks(timestamp)
+            return 'success'
 
-        timestamp = 'screenshot taken in ', t.strftime("%I:%M:%S")
-        erispeaks(timestamp)
-        num += 1
+
 
 
 def getAudio():
@@ -64,7 +63,12 @@ def main():
             erispeaks('Done taking screenshots')
             break
 
-        getScreenshot(voiceInput, numOfScreenshots)
+        screenshot = getScreenshot(voiceInput)
+
+        if screenshot == 'success':
+            numOfScreenshots += 1
+
+        print(numOfScreenshots)
 
 
 if __name__ == "__main__":
