@@ -1,13 +1,13 @@
 """
 @author: Sandra Chavez
 Purpose: This program takes a screenshot by users' request
-@:argument voice input 
+@:argument voice input
 """
 
-import pyautogui as p  # module to take the screenshot 
+import pyautogui as p  # module to take the screenshot
 import speech_recognition as SR  # module to recognize the microphone's input
-import pyttsx3 as ts  # module for text to speech 
-import time as t  # module to give the timestamp 
+import pyttsx3 as ts  # module for text to speech
+import time as t  # module to give the timestamp
 
 engine = ts.init()
 
@@ -17,19 +17,26 @@ indicators = ['important', 'take screenshot', 'take a screenshot', 'need to reme
 # words/phrases that break the while loop
 exits = ['no more', 'exit', 'done']
 
-
 """
 @:param phrase: string that will soon be 
     converted from text to speech 
 """
+
+
 def erispeaks(phrase):
     print(phrase)
     engine.say(phrase)
     engine.runAndWait()
 
 
-def getScreenshot(voice, num):
+"""
+Gets the screenshot, saves the file and gives the timestamp 
+@:param voice - the users' voice input
+@:param num - the current number of screenshots taken
+"""
 
+
+def getScreenshot(voice, num):
     if any(word in voice for word in indicators):
         if num > 0:
             ss = p.screenshot('screenshot{0}.png'.format(num))
@@ -39,8 +46,6 @@ def getScreenshot(voice, num):
         timestamp = 'screenshot taken in ', t.strftime("%I:%M:%S")
         erispeaks(timestamp)
         return 'success'
-
-
 
 
 def getAudio():
