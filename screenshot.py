@@ -8,20 +8,24 @@ engine = ts.init()
 indicators = ['important', 'take screenshot', 'take a screenshot', 'need to remember this']
 exits = ['no more', 'exit', 'done']
 
+
 def erispeaks(phrase):
     print(phrase)
     engine.say(phrase)
     engine.runAndWait()
 
 
-def getScreenshot(voice):
-    num = 1
+def getScreenshot(voice, num):
+
     if any(word in voice for word in indicators):
-        ss = p.screenshot('screenshot{0}.png'.format(num))
+        if num > 0:
+            ss = p.screenshot('screenshot{0}.png'.format(num))
+        else:
+            ss = p.screenshot('screenshot.png')
+
         timestamp = 'screenshot taken in ', t.strftime("%I:%M:%S")
         erispeaks(timestamp)
         num += 1
-
 
 
 def getAudio():
@@ -42,7 +46,10 @@ def getAudio():
             print('Could not process the audio!')
             return 0
 
+
 def main():
+    numOfScreenshots = 0  # num of total screenshots
+
     while 1:
         # default voice
         voice_ID = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0'
@@ -57,16 +64,7 @@ def main():
             erispeaks('Done taking screenshots')
             break
 
-        getScreenshot(voiceInput)
-
-
-
-
-
-
-
-
-
+        getScreenshot(voiceInput, numOfScreenshots)
 
 
 if __name__ == "__main__":
