@@ -16,13 +16,17 @@ def erispeaks(phrase):
     engine.runAndWait()
 
 
-def getScreenshot(voice):
+def getScreenshot(voice, num):
 
     if any(word in voice for word in indicators):
-            ss = p.screenshot('screenshot.png')
-            timestamp = 'screenshot taken in ', t.strftime("%I:%M:%S")
-            erispeaks(timestamp)
-            return 'success'
+        if num > 0: 
+            ss = p.screenshot('screenshot{0}.png'.format(num))
+        else:
+            first = p.screenshot('screenshot.png')
+            
+        timestamp = 'screenshot taken in ', t.strftime("%I:%M:%S")
+        erispeaks(timestamp)
+        return 'success'
 
 
 
@@ -63,7 +67,7 @@ def main():
             erispeaks('Done taking screenshots')
             break
 
-        screenshot = getScreenshot(voiceInput)
+        screenshot = getScreenshot(voiceInput, numOfScreenshots)
 
         if screenshot == 'success':
             numOfScreenshots += 1
