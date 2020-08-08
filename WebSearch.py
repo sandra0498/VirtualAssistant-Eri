@@ -5,7 +5,7 @@ import pyttsx3 as ts
 engine = ts.init()
 
 websites = {'google' : 'https://www.google.com/',
-            'youtube': 'https://www.youtube.com/', 
+            'youtube': 'https://www.youtube.com/',
             'bing': 'https://www.bing.com'}
 class web:
 
@@ -13,12 +13,12 @@ class web:
         self.site = site
         self.subject = subject
 
-
-    def getAudioForSite(self):
-        variable = SR.Recognizer()
-        while 1:
-            with SR.Microphone as receiver:
-                self.erispeaks('speak now...')
+    # might move to the main class 
+    # def getAudioForSite(self):
+    #     variable = SR.Recognizer()
+    #     while 1:
+    #         with SR.Microphone as receiver:
+    #             self.erispeaks('speak now...')
 
 
 
