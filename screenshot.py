@@ -84,15 +84,15 @@ def main():
         engine.setProperty('voice', voice_ID)
         voiceInput = getAudio()
 
-        # if input is inaudible --> continue the loop 
+        # if input is inaudible --> continue the loop
         if voiceInput == 0:
             continue
 
-        # only gets to this point if voice input is string 
-        # this prevents error - since there is conditional above 
+        # only gets to this point if voice input is string
+        # this prevents error - since there is conditional above
         voiceInput = str(voiceInput).lower()
 
-        # if any words user says included in the exits array 
+        # if any words user says included in the exits array
         #  --> breaks the loop (exits) 
         if any(word in voiceInput for word in exits):
             erispeaks('Done taking screenshots')
@@ -100,10 +100,11 @@ def main():
 
         screenshot = getScreenshot(voiceInput, numOfScreenshots)
 
+        #  only increments if screenshot was successfuly taken 
         if screenshot == 'success':
             numOfScreenshots += 1
 
-        print(numOfScreenshots)
+        # print(numOfScreenshots)
 
 
 if __name__ == "__main__":
