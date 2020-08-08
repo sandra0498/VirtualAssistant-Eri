@@ -4,6 +4,9 @@ import pyttsx3 as ts
 
 engine = ts.init()
 
+websites = {'google' : 'https://www.google.com/',
+            'youtube': 'https://www.youtube.com/', 
+            'bing': 'https://www.bing.com'}
 class web:
 
     def __init__(self, site, subject):
@@ -16,7 +19,7 @@ class web:
         while 1:
             with SR.Microphone as receiver:
                 self.erispeaks('speak now...')
-                
+
 
 
     def erispeaks(self, phrase):
@@ -24,9 +27,15 @@ class web:
         engine.say(phrase)
         engine.runAndWait()
 
+    def searchWeb(self):
 
 
 
-url = 'https://www.youtube.com/'
-web.open(url)
+
+web.open('youtube.com')
+
+
+
+# url = 'https://www.youtube.com/'
+# web.open(url)
 
