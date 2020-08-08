@@ -83,11 +83,17 @@ def main():
         voice_ID = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0'
         engine.setProperty('voice', voice_ID)
         voiceInput = getAudio()
+
+        # if input is inaudible --> continue the loop 
         if voiceInput == 0:
             continue
 
+        # only gets to this point if voice input is string 
+        # this prevents error - since there is conditional above 
         voiceInput = str(voiceInput).lower()
 
+        # if any words user says included in the exits array 
+        #  --> breaks the loop (exits) 
         if any(word in voiceInput for word in exits):
             erispeaks('Done taking screenshots')
             break
