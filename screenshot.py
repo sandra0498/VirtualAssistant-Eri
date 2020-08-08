@@ -48,6 +48,14 @@ def getScreenshot(voice, num):
         return 'success'
 
 
+"""
+gets the users' audio 
+:return: a string of the audio input 
+@:returns 0 if the microphone was not able to process 
+        the audio
+"""
+
+
 def getAudio():
     variable = SR.Recognizer()
 
