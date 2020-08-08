@@ -18,7 +18,7 @@ indicators = ['important', 'take screenshot', 'take a screenshot', 'need to reme
 exits = ['no more', 'exit', 'done']
 
 """
-@:param phrase: string that will soon be 
+@:param phrase: string that will be 
     converted from text to speech 
 """
 
@@ -38,6 +38,9 @@ Gets the screenshot, saves the file and gives the timestamp
 
 def getScreenshot(voice, num):
     if any(word in voice for word in indicators):
+        # this conditional determines the naming of the file 
+        # this is put in case of multiple screenshots 
+        #  prevents the overriding of the file 
         if num > 0:
             ss = p.screenshot('screenshot{0}.png'.format(num))
         else:
@@ -93,14 +96,14 @@ def main():
         voiceInput = str(voiceInput).lower()
 
         # if any words user says included in the exits array
-        #  --> breaks the loop (exits) 
+        #  --> breaks the loop (exits)
         if any(word in voiceInput for word in exits):
             erispeaks('Done taking screenshots')
             break
 
         screenshot = getScreenshot(voiceInput, numOfScreenshots)
 
-        #  only increments if screenshot was successfuly taken 
+        #  only increments if screenshot was successfuly taken
         if screenshot == 'success':
             numOfScreenshots += 1
 
