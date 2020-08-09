@@ -33,15 +33,15 @@ class web:
 
         if self.site in websites:
             url = websites.get(self.site)
-        
+
         else:
             url = 'https://www.{0}.com/'.format(self.site)
-            
+        
+        return url 
 
 
-
-
-web.open('youtube.com')
+# 
+# web.open('youtube.com')
 
 # url = 'https://www.youtube.com/'
 # web.open(url)
