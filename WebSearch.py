@@ -4,23 +4,24 @@ import pyttsx3 as ts
 
 engine = ts.init()
 
-websites = {'google' : 'https://www.google.com/',
+websites = {'google': 'https://www.google.com/',
             'youtube': 'https://www.youtube.com/',
-            'bing': 'https://www.bing.com'}
+            'bing': 'https://www.bing.com',
+            'github': 'https://github.com/'}
+
+
 class web:
 
     def __init__(self, site, subject):
         self.site = site
         self.subject = subject
 
-    # might move to the main class 
+    # might move to the main class
     # def getAudioForSite(self):
     #     variable = SR.Recognizer()
     #     while 1:
     #         with SR.Microphone as receiver:
     #             self.erispeaks('speak now...')
-
-
 
     def erispeaks(self, phrase):
         print(phrase)
@@ -28,14 +29,15 @@ class web:
         engine.runAndWait()
 
     def searchWeb(self):
-
+        query = ''
+        if self.site in websites:
+            url = websites.get(self.site)
+        
+        
 
 
 
 web.open('youtube.com')
 
-
-
 # url = 'https://www.youtube.com/'
 # web.open(url)
-
