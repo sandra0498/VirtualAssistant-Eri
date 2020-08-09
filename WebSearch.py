@@ -29,11 +29,15 @@ class web:
         engine.runAndWait()
 
     def searchWeb(self):
-        query = ''
+        url = ''
+
         if self.site in websites:
             url = websites.get(self.site)
         
-        
+        else:
+            url = 'https://www.{0}.com/'.format(self.site)
+            
+
 
 
 
