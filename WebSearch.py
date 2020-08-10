@@ -36,11 +36,17 @@ class web:
 
         else:
             url = 'https://www.{0}.com/'.format(self.site)
+
+        return url
+    
+    def searchsubject(self):
+        query = self.searchWeb()
+        query += self.subject
         
-        return url 
+        return query
 
 
-# 
+#
 # web.open('youtube.com')
 
 # url = 'https://www.youtube.com/'
