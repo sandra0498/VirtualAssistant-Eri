@@ -1,5 +1,7 @@
 import Translate as t  # importing the translation feature
 import screenshot as sc
+import WebSearch as ws
+
 
 
 def main():
