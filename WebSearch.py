@@ -10,48 +10,63 @@ engine.setProperty('voice', voice_ID)
 
 websites = {'google': 'https://www.google.com/',
             'youtube': 'https://www.youtube.com/',
-            'bing': 'https://www.bing.com',
-            'github': 'https://github.com/'}
+            'bing': 'https://www.bing.com'}
 
+
+exits = ['no search', 'goodbye', 'bye', 'none']
 
 
 def getVoice():
     variable = SR.Recognizer()
-    with SR.Microphone as receiver:
+    with SR.Microphone() as source:
         print('speak now...')
-        voice = variable.listen(receiver, phrase_time_limit=5)
+        voice = variable.listen(source, phrase_time_limit=5)
         print('done')
-            
-            
+        try:
+            text = variable.recognize_google(voice)
+            return text
+
+        except SR.UnknownValueError:
+            erispeaks("i'm sorry, couldn't get that")
+            return 0
+
+
+
 
 def erispeaks(phrase):
     print(phrase)
     engine.say(phrase)
     engine.runAndWait()
 
-    # def searchWeb(self):
-    #     url = ''
-    #
-    #     if self.site in websites:
-    #         url = websites.get(self.site)
-    #
-    #     else:
-    #         url = 'https://www.{0}.com/'.format(self.site)
-    #
-    #     return url
-    #
-    # def searchsubject(self):
-    #     query = self.searchWeb()
-    #     query += self.subject
-    #
-    #     return query
+def searchWeb(choice):
+    if choice in websites:
+        url = websites.get(choice)
 
+
+def printChoices():
+    menu = 'google \n' \
+           'youtube \n' \
+           'bing \n'
+    print(menu)
 
 def main():
 
     while 1:
         erispeaks('what site would you like to search?')
-        
+        printChoices()
+        command = getVoice()
+        if command == 0:
+            continue
+
+
+
+
+
+if __name__ == "__main__":
+    main()
+
+
+
 
 
 #
@@ -59,3 +74,4 @@ def main():
 
 # url = 'https://www.youtube.com/'
 # web.open(url)
+
