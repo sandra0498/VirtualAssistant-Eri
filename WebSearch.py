@@ -10,41 +10,40 @@ websites = {'google': 'https://www.google.com/',
             'github': 'https://github.com/'}
 
 
-class web:
 
-    def __init__(self, site, subject):
-        self.site = site
-        self.subject = subject
+def getAudio():
+    variable = SR.Recognizer()
+    while 1:
+        with SR.Microphone as receiver:
+            erispeaks('speak now...')
 
-    # might move to the main class
-    # def getAudioForSite(self):
-    #     variable = SR.Recognizer()
-    #     while 1:
-    #         with SR.Microphone as receiver:
-    #             self.erispeaks('speak now...')
+def erispeaks(phrase):
+    print(phrase)
+    engine.say(phrase)
+    engine.runAndWait()
 
-    def erispeaks(self, phrase):
-        print(phrase)
-        engine.say(phrase)
-        engine.runAndWait()
+    # def searchWeb(self):
+    #     url = ''
+    #
+    #     if self.site in websites:
+    #         url = websites.get(self.site)
+    #
+    #     else:
+    #         url = 'https://www.{0}.com/'.format(self.site)
+    #
+    #     return url
+    #
+    # def searchsubject(self):
+    #     query = self.searchWeb()
+    #     query += self.subject
+    #
+    #     return query
 
-    def searchWeb(self):
-        url = ''
 
-        if self.site in websites:
-            url = websites.get(self.site)
+def main():
 
-        else:
-            url = 'https://www.{0}.com/'.format(self.site)
-
-        return url
-    
-    def searchsubject(self):
-        query = self.searchWeb()
-        query += self.subject
+    while 1:
         
-        return query
-
 
 #
 # web.open('youtube.com')
