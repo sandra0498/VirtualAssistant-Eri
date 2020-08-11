@@ -4,6 +4,10 @@ import pyttsx3 as ts
 
 engine = ts.init()
 
+# default voice
+voice_ID = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0'
+engine.setProperty('voice', voice_ID)
+
 websites = {'google': 'https://www.google.com/',
             'youtube': 'https://www.youtube.com/',
             'bing': 'https://www.bing.com',
@@ -11,11 +15,14 @@ websites = {'google': 'https://www.google.com/',
 
 
 
-def getAudio():
+def getVoice():
     variable = SR.Recognizer()
-    while 1:
-        with SR.Microphone as receiver:
-            erispeaks('speak now...')
+    with SR.Microphone as receiver:
+        print('speak now...')
+        voice = variable.listen(receiver, phrase_time_limit=5)
+        print('done')
+            
+            
 
 def erispeaks(phrase):
     print(phrase)
@@ -43,7 +50,9 @@ def erispeaks(phrase):
 def main():
 
     while 1:
+        erispeaks('what site would you like to search?')
         
+
 
 #
 # web.open('youtube.com')
