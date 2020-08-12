@@ -37,8 +37,19 @@ def erispeaks(phrase):
     engine.runAndWait()
 
 def searchWeb(choice):
+    url = ''
     if choice in websites:
         url = websites.get(choice)
+    else:
+        url = 'https://%s.com/' % choice
+
+    searchSubject(url)
+
+def searchSubject(url):
+    erispeaks('would you like to search for anything in specific?')
+    sub = getVoice()
+    
+
 
 
 def printChoices():
