@@ -31,8 +31,6 @@ def getVoice():
             return 0
 
 
-
-
 def erispeaks(phrase):
     print(phrase)
     engine.say(phrase)
@@ -59,14 +57,12 @@ def main():
             continue
 
         command = str(command).lower()
-        
+
         if any(word in command for word in exits):
             erispeaks('okay, goodbye!')
             break
-            
-        
 
-
+        searchWeb(command)
 
 
 
