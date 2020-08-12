@@ -52,7 +52,7 @@ def searchSubject(url):
         erispeaks("I'll search up the site anyway")
         web.open(url)
 
-    sub = str(str).lower()
+    sub = str(sub).lower()
     url += sub
 
     web.open(url)
