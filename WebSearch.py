@@ -58,6 +58,14 @@ def main():
         if command == 0:
             continue
 
+        command = str(command).lower()
+        
+        if any(word in command for word in exits):
+            erispeaks('okay, goodbye!')
+            break
+            
+        
+
 
 
 
