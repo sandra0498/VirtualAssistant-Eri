@@ -16,6 +16,8 @@ websites = {'google': 'https://www.google.com/',
 exits = ['no search', 'goodbye', 'bye', 'none']
 
 
+
+
 def getVoice():
     variable = SR.Recognizer()
     with SR.Microphone() as source:
@@ -37,12 +39,15 @@ def erispeaks(phrase):
     engine.runAndWait()
 
 def searchWeb(choice):
+    print('your choice is {0}'.format(choice))
     url = ''
     if choice in websites:
         url = websites.get(choice)
     else:
         url = 'https://%s.com/' % choice
 
+    result = 'your url is {0}'.format(url)
+    print(result)
     searchSubject(url)
 
 def searchSubject(url):
@@ -52,8 +57,14 @@ def searchSubject(url):
         erispeaks("I'll search up the site anyway")
         web.open(url)
 
+    signalsforNoSub = ['no', 'none', 'no thank you']
+
     sub = str(sub).lower()
-    url += sub
+
+    if any(word in sub for word in signalsforNoSub):
+        pass
+    else:
+        url += sub
 
     web.open(url)
 
