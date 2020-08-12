@@ -48,7 +48,15 @@ def searchWeb(choice):
 def searchSubject(url):
     erispeaks('would you like to search for anything in specific?')
     sub = getVoice()
+    if sub == 0:
+        erispeaks("I'll search up the site anyway")
+        web.open(url)
+
+    sub = str(str).lower()
+    url += sub
     
+    web.open(url)
+
 
 
 
