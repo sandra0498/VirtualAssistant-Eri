@@ -137,9 +137,10 @@ def main():
         engine.setProperty('voice', voice_ID)
 
         eriSpeaks('what would you like to translate?')
-        command = str(getVoice()).lower()
         if command == 0:
             continue
+            
+        command = str(getVoice()).lower()
 
         if any(word in command for word in exits):
             eriSpeaks('okay, goodbye!')
