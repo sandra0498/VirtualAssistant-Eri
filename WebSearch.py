@@ -16,8 +16,6 @@ websites = {'google': 'https://www.google.com/',
 exits = ['no search', 'goodbye', 'bye', 'none']
 
 
-
-
 def getVoice():
     variable = SR.Recognizer()
     with SR.Microphone() as source:
@@ -72,7 +70,6 @@ def searchSubject(url):
             Ext = 'search?q='
             url += Ext
             url += sub
-        
 
         print('your complete url is {0}'.format(url))
 
