@@ -68,7 +68,15 @@ def searchSubject(url):
             ext = 'results?search_query='
             url += ext
             url += sub
-            print('your complete url is {0}'.format(url))
+        elif 'bing' in url:
+            bingExt = 'search?q='
+            url += bingExt
+            url += sub
+
+        print('your complete url is {0}'.format(url))
+
+        # url += sub
+
     web.open(url)
 
 
