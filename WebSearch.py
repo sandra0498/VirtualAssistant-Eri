@@ -64,8 +64,11 @@ def searchSubject(url):
     if any(word in sub for word in signalsforNoSub):
         pass
     else:
-        url += sub
-
+        if 'youtube' in url:
+            ext = 'results?search_query='
+            url += ext
+            url += sub
+            print('your complete url is {0}'.format(url))
     web.open(url)
 
 
