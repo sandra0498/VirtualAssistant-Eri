@@ -8,6 +8,7 @@ engine = ts.init()
 voice_ID = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0'
 engine.setProperty('voice', voice_ID)
 
+
 websites = {'google': 'https://www.google.com/',
             'youtube': 'https://www.youtube.com/',
             'bing': 'https://www.bing.com'}
@@ -39,10 +40,15 @@ def erispeaks(phrase):
 def searchWeb(choice):
     print('your choice is {0}'.format(choice))
     url = ''
-    if choice in websites:
-        url = websites.get(choice)
+    if choice == 0:
+        erispeaks('going to default website')
+        url = websites.get('google')
+        
     else:
-        url = 'https://%s.com/' % choice
+        if choice in websites:
+            url = websites.get(choice)
+        else:
+            url = 'https://%s.com/' % choice
 
     result = 'your url is {0}'.format(url)
     print(result)
