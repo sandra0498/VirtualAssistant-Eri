@@ -1,3 +1,10 @@
+"""
+@author: Sandra Chavez
+Purpose: This program will prompt the user for a site name 
+        and what would be searched 
+@:argument  audio input via users' microphone 
+"""
+
 import webbrowser as web
 import speech_recognition as SR
 import pyttsx3 as ts
@@ -43,7 +50,7 @@ def searchWeb(choice):
     if choice == 0:
         erispeaks('going to default website')
         url = websites.get('google')
-        
+
     else:
         if choice in websites:
             url = websites.get(choice)
