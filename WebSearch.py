@@ -77,6 +77,9 @@ def searchWeb(choice):
     searchSubject(url)
 
 
+"""
+prompts the user for a specific subject to search 
+"""
 def searchSubject(url):
     erispeaks('would you like to search for anything specific?')
     sub = getVoice()
