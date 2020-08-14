@@ -20,7 +20,7 @@ websites = {'google': 'https://www.google.com/',
             'youtube': 'https://www.youtube.com/',
             'bing': 'https://www.bing.com'}
 
-# words that indicate when to break the loop 
+# words that indicate when to break the loop
 exits = ['no search', 'goodbye', 'bye', 'none']
 
 """
@@ -29,8 +29,6 @@ gets the audio from the user's microphone
         the input 
 @:rtype integer zero if error occurs 
 """
-
-
 def getVoice():
     variable = SR.Recognizer()
     with SR.Microphone() as source:
@@ -50,8 +48,6 @@ def getVoice():
 @:param phrase: a string that will be converted 
     from text to speech 
 """
-
-
 def erispeaks(phrase):
     print(phrase)
     engine.say(phrase)
@@ -63,8 +59,6 @@ gets the url path of the user's choice
 @:param choice - indicates what web search engine 
                 user wants to use 
 """
-
-
 def searchWeb(choice):
     print('your choice is {0}'.format(choice))
     url = ''
