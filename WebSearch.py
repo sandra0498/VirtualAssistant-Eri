@@ -15,7 +15,7 @@ engine = ts.init()
 voice_ID = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0'
 engine.setProperty('voice', voice_ID)
 
-# dictionary of common web search engines 
+# dictionary of common web search engines
 websites = {'google': 'https://www.google.com/',
             'youtube': 'https://www.youtube.com/',
             'bing': 'https://www.bing.com'}
@@ -50,10 +50,19 @@ def getVoice():
 @:param phrase: a string that will be converted 
     from text to speech 
 """
+
+
 def erispeaks(phrase):
     print(phrase)
     engine.say(phrase)
     engine.runAndWait()
+
+
+"""
+gets the url path of the user's choice 
+@:param choice - indicates what web search engine 
+                user wants to use 
+"""
 
 
 def searchWeb(choice):
@@ -102,6 +111,9 @@ def searchSubject(url):
     web.open(url)
 
 
+"""
+prints the choices for search engines 
+"""
 def printChoices():
     menu = 'google \n' \
            'youtube \n' \
