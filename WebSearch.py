@@ -1,8 +1,8 @@
 """
 @author: Sandra Chavez
-Purpose: This program will prompt the user for a site name 
-        and what would be searched 
-@:argument  audio input via users' microphone 
+Purpose: This program will prompt the user for a site name
+        and what would be searched
+@:argument  audio input via users' microphone
 """
 
 import webbrowser as web
@@ -23,7 +23,12 @@ websites = {'google': 'https://www.google.com/',
 
 exits = ['no search', 'goodbye', 'bye', 'none']
 
-
+"""
+gets the audio from the user's microphone
+@:rtype string if microphone successfully recognizes
+        the input 
+@:rtype integer zero if error occurs 
+"""
 def getVoice():
     variable = SR.Recognizer()
     with SR.Microphone() as source:
