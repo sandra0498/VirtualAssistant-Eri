@@ -109,12 +109,3 @@ if __name__ == "__main__":
     main()
 
 
-
-
-
-#
-# web.open('youtube.com')
-
-# url = 'https://www.youtube.com/'
-# web.open(url)
-
