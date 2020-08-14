@@ -15,12 +15,12 @@ engine = ts.init()
 voice_ID = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0'
 engine.setProperty('voice', voice_ID)
 
-
+# dictionary of common web search engines 
 websites = {'google': 'https://www.google.com/',
             'youtube': 'https://www.youtube.com/',
             'bing': 'https://www.bing.com'}
 
-
+# words that indicate when to break the loop 
 exits = ['no search', 'goodbye', 'bye', 'none']
 
 """
@@ -29,6 +29,8 @@ gets the audio from the user's microphone
         the input 
 @:rtype integer zero if error occurs 
 """
+
+
 def getVoice():
     variable = SR.Recognizer()
     with SR.Microphone() as source:
@@ -44,10 +46,15 @@ def getVoice():
             return 0
 
 
+"""
+@:param phrase: a string that will be converted 
+    from text to speech 
+"""
 def erispeaks(phrase):
     print(phrase)
     engine.say(phrase)
     engine.runAndWait()
+
 
 def searchWeb(choice):
     print('your choice is {0}'.format(choice))
@@ -65,6 +72,7 @@ def searchWeb(choice):
     result = 'your url is {0}'.format(url)
     print(result)
     searchSubject(url)
+
 
 def searchSubject(url):
     erispeaks('would you like to search for anything specific?')
@@ -94,16 +102,14 @@ def searchSubject(url):
     web.open(url)
 
 
-
-
 def printChoices():
     menu = 'google \n' \
            'youtube \n' \
            'bing \n'
     print(menu)
 
-def main():
 
+def main():
     while 1:
         erispeaks('what site would you like to search?')
         printChoices()
@@ -120,8 +126,5 @@ def main():
         searchWeb(command)
 
 
-
 if __name__ == "__main__":
     main()
-
-
