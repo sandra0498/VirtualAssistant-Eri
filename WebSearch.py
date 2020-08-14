@@ -73,8 +73,6 @@ def searchSubject(url):
 
         print('your complete url is {0}'.format(url))
 
-        # url += sub
-
     web.open(url)
 
 
