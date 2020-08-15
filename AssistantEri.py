@@ -3,6 +3,7 @@ import screenshot as sc
 import WebSearch as WS
 import speech_recognition as SR
 import pyttsx3 as ts
+import time
 
 
 engine = ts.init()
@@ -30,6 +31,12 @@ def getVoice():
             eriSpeaks("i'm sorry, couldn't get that")
             return 0
 
+def getTime():
+    local = time.localtime()
+    currentTime = time.strftime("%H:%M:%S", local)
+    eriSpeaks("The current time is {0}".format(currentTime))
+
+
 def main():
     eriSpeaks('Hello, my name is Eréndira, but for short call me Eri')
 
@@ -45,11 +52,15 @@ def main():
 
         if 'bye' in command:
             eriSpeaks('goodbye')
-            break 
+            break
+            
+        if 'current time' in command:
+            getTime()
+            
         t.main()
 
         WS.main()
-        
+
         sc.main()
 
 
