@@ -53,15 +53,15 @@ def main():
         if 'bye' in command:
             eriSpeaks('goodbye')
             break
-            
+
         if 'current time' in command:
             getTime()
-            
-        t.main()
 
-        WS.main()
-
-        sc.main()
+        # t.main()
+        #
+        # WS.main()
+        #
+        # sc.main()
 
 
 if __name__ == '__main__':
