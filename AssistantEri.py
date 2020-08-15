@@ -32,23 +32,25 @@ def getVoice():
 
 def main():
     eriSpeaks('Hello, my name is Eréndira, but for short call me Eri')
-    
+
     while 1:
-            
+
         eriSpeaks('what would you like me to do?')
-        
+
         command = getVoice()
-        
+
         if command == 0:
-            continue 
-        
-    
+            continue
+
+
         if 'bye' in command:
             eriSpeaks('goodbye')
             break 
         t.main()
-    
+
         WS.main()
+        
+        sc.main()
 
 
 if __name__ == '__main__':
