@@ -41,8 +41,7 @@ def getTime():
 def getDate():
     today = date.today()
     formatDate = today.strftime("%B %d, %Y")
-    return formatDate
-
+    eriSpeaks("The current date is {0}".format(formatDate))
 
 
 
@@ -69,8 +68,8 @@ def main():
 
         if 'date' in command:
             getDate()
-            
-            
+
+
 
         if 'shutdown' in command:
             os.system('shutdown -s')
