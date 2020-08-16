@@ -4,6 +4,7 @@ import WebSearch as WS
 import speech_recognition as SR
 import pyttsx3 as ts
 import time
+import os
 
 
 engine = ts.init()
@@ -56,6 +57,9 @@ def main():
 
         if 'current time' in command:
             getTime()
+
+        if 'shutdown' in command:
+            os.system('shutdown -s')
 
         # t.main()
         #
