@@ -58,7 +58,8 @@ def main():
         if command == 0:
             continue
 
-
+        command = str(command).lower()
+        
         if 'bye' in command:
             eriSpeaks('goodbye')
             break
@@ -68,8 +69,6 @@ def main():
 
         if 'date' in command:
             getDate()
-
-
 
         if 'shutdown' in command:
             os.system('shutdown -s')
