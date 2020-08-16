@@ -5,6 +5,7 @@ import speech_recognition as SR
 import pyttsx3 as ts
 import time
 import os
+from datetime import date
 
 
 engine = ts.init()
@@ -37,6 +38,14 @@ def getTime():
     currentTime = time.strftime("%H:%M:%S", local)
     eriSpeaks("The current time is {0}".format(currentTime))
 
+def getDate():
+    today = date.today()
+    formatDate = today.strftime("%B %d, %Y")
+    return formatDate
+
+
+
+
 
 def main():
     eriSpeaks('Hello, my name is Eréndira, but for short call me Eri')
@@ -57,6 +66,11 @@ def main():
 
         if 'current time' in command:
             getTime()
+
+        if 'date' in command:
+            getDate()
+            
+            
 
         if 'shutdown' in command:
             os.system('shutdown -s')
