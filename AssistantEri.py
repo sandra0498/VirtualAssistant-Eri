@@ -59,27 +59,27 @@ def main():
 
         eriSpeaks('what would you like me to do?')
 
-        command = getVoice()
+        eri_command = getVoice()
 
-        if command == 0:
+        if eri_command == 0:
             continue
 
-        command = str(command).lower()
+        eri_command = str(eri_command).lower()
 
-        if 'bye' in command:
+        if 'bye' in eri_command:
             eriSpeaks('goodbye')
             break
 
-        if 'current time' in command:
+        if 'current time' in eri_command:
             getTime()
 
-        if 'date' in command:
+        if 'date' in eri_command:
             getDate()
 
-        if 'shutdown' in command:
+        if 'shutdown' in eri_command:
             os.system('shutdown -s')
 
-        if 'translate' in command:
+        if 'translate' in eri_command:
             t.main()
 
         # WS.main()
