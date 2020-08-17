@@ -51,8 +51,9 @@ def main():
     eriSpeaks('what is your name?')
     name = getVoice()
     if name == 0:
-        eriSpeaks('')
-    eriSpeaks('greetings {0}'.format(name))
+        eriSpeaks("I couldn't get your name, greetings anyways")
+    else:
+        eriSpeaks('greetings {0}'.format(name))
 
     while 1:
 
