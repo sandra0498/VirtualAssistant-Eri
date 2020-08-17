@@ -54,7 +54,7 @@ def main():
         name = 'human'
         eriSpeaks("I couldn't get your name, greetings anyways")
     else:
-        eriSpeaks('greetings {0}'.format(name))
+        eriSpeaks('greetings, {0}'.format(name))
 
     while 1:
 
@@ -68,7 +68,7 @@ def main():
         eri_command = str(eri_command).lower()
 
         if 'bye' in eri_command:
-            eriSpeaks('goodbye {0}'.format(name))
+            eriSpeaks('goodbye {0}, it was a pleasure'.format(name))
             break
 
         if 'current time' in eri_command:
