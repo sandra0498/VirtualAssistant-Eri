@@ -127,7 +127,8 @@ def speakTranslation(translation, language):
         eriSpeaks('Your translation is...')
         engine.setProperty('voice', MVoice)
 
-    eriSpeaks(translation.text)
+    eriSpeaks("Your translation is ".format(translation.text))
+    print("The prounciation is {0}".format(translation.pronunciation))
 
 
 def main():
