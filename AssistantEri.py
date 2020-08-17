@@ -48,6 +48,11 @@ def getDate():
 
 def main():
     eriSpeaks('Hello, my name is Eréndira, but for short call me Eri')
+    eriSpeaks('what is your name?')
+    name = getVoice()
+    if name == 0:
+        eriSpeaks('')
+    eriSpeaks('greetings {0}'.format(name))
 
     while 1:
 
@@ -59,7 +64,7 @@ def main():
             continue
 
         command = str(command).lower()
-        
+
         if 'bye' in command:
             eriSpeaks('goodbye')
             break
@@ -73,8 +78,9 @@ def main():
         if 'shutdown' in command:
             os.system('shutdown -s')
 
-        # t.main()
-        #
+        if 'translate' in command:
+            t.main()
+
         # WS.main()
         #
         # sc.main()
