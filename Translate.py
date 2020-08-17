@@ -12,7 +12,7 @@ import speech_recognition as SR
 engine = ts.init()
 translator = Translator()
 
-exits = ['bye', 'exit', 'no', 'nothing', 'done']
+exits = ['bye', 'exit', 'no', 'nothing', 'done', 'finished']
 
 # only have these languages installed in computer for text-to-speech
 # (excluding russian and korean)
@@ -137,9 +137,12 @@ def main():
         engine.setProperty('voice', voice_ID)
 
         eriSpeaks('what would you like to translate?')
+        
+        command = getVoice()
+        
         if command == 0:
             continue
-            
+
         command = str(getVoice()).lower()
 
         if any(word in command for word in exits):
