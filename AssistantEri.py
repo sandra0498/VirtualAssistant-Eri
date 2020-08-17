@@ -47,10 +47,11 @@ def getDate():
 
 
 def main():
-    eriSpeaks('Hello, my name is Eréndira, but for short call me Eri')
+    eriSpeaks('Hello, my name is Eréndira, but for short, call me Eri')
     eriSpeaks('what is your name?')
     name = getVoice()
     if name == 0:
+        name = 'human'
         eriSpeaks("I couldn't get your name, greetings anyways")
     else:
         eriSpeaks('greetings {0}'.format(name))
@@ -67,7 +68,7 @@ def main():
         eri_command = str(eri_command).lower()
 
         if 'bye' in eri_command:
-            eriSpeaks('goodbye')
+            eriSpeaks('goodbye {0}'.format(name))
             break
 
         if 'current time' in eri_command:
