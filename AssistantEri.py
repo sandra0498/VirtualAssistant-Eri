@@ -6,7 +6,7 @@ import pyttsx3 as ts
 import time
 import os
 from datetime import date
-
+import Visuals 
 
 engine = ts.init()
 
@@ -85,7 +85,7 @@ def main():
 
         if 'search' in eri_command:
             WS.main()
-        
+
         if 'screenshot' in eri_command:
             sc.main()
 
