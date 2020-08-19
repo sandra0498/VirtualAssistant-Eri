@@ -83,9 +83,11 @@ def main():
         if 'translate' in eri_command:
             t.main()
 
-        # WS.main()
-        #
-        # sc.main()
+        if 'search' in eri_command:
+            WS.main()
+        
+        if 'screenshot' in eri_command:
+            sc.main()
 
 
 if __name__ == '__main__':
