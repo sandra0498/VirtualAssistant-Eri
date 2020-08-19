@@ -2,7 +2,7 @@ import turtle
 
 
 visuals = turtle.Turtle()
-
+visuals.getscreen().bgcolor('aqua')
 visuals.color('blue', 'purple')
 visuals.begin_fill()
 visuals.speed(50)
