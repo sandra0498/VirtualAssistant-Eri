@@ -1,13 +1,15 @@
-from turtle import *
+import turtle
 
 
-color('blue', 'purple')
-begin_fill()
-speed(50)
+visuals = turtle.Turtle()
+
+visuals.color('blue', 'purple')
+visuals.begin_fill()
+visuals.speed(50)
 while True:
-    forward(200)
-    left(170)
-    if abs(pos()) < 1:
+    visuals.forward(200)
+    visuals.left(170)
+    if abs(visuals.pos()) < 1:
         break
-end_fill()
-done()
+visuals.end_fill()
+turtle.done()
