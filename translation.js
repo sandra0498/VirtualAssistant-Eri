@@ -10,7 +10,7 @@ req.query({
 
 req.headers({
 	"x-rapidapi-host": "microsoft-azure-translation-v1.p.rapidapi.com",
-	"x-rapidapi-key": "SIGN-UP-FOR-KEY",
+	"x-rapidapi-key": "afa3404f83mshf2743be05f8bfeap15b74ejsn3b8517cde47b",
 	"accept": "application/json",
 	"useQueryString": true
 });
