@@ -6,7 +6,7 @@ import pyttsx3 as ts
 import time
 import os
 from datetime import date
-import Visuals 
+
 
 engine = ts.init()
 
@@ -14,11 +14,20 @@ engine = ts.init()
 voice_ID = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0'
 engine.setProperty('voice', voice_ID)
 
+"""
+@:param phrase: a string that will be converted 
+    from text to speech 
+"""
 def eriSpeaks(phrase):
     print(phrase)
     engine.say(phrase)
     engine.runAndWait()
 
+""" 
+Gets the audio from the users' microphone 
+@:returns a string of the audio 
+@:return 0 if the input is audible  
+"""
 def getVoice():
     variable = SR.Recognizer()
     with SR.Microphone() as source:
@@ -33,10 +42,12 @@ def getVoice():
             eriSpeaks("i'm sorry, couldn't get that")
             return 0
 
+
 def getTime():
     local = time.localtime()
     currentTime = time.strftime("%H:%M:%S", local)
     eriSpeaks("The current time is {0}".format(currentTime))
+
 
 def getDate():
     today = date.today()
