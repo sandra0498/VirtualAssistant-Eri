@@ -23,6 +23,7 @@ def eriSpeaks(phrase):
     engine.say(phrase)
     engine.runAndWait()
 
+
 """ 
 Gets the audio from the users' microphone 
 @:returns a string of the audio 
@@ -67,10 +68,13 @@ def main():
     eriSpeaks('Hello, my name is Eréndira, but for short, call me Eri')
     eriSpeaks('what is your name?')
     name = getVoice()
+    
+    # if input is audible, user will be called human 
     if name == 0:
         name = 'human'
         eriSpeaks("I couldn't get your name, greetings anyways")
     else:
+        # otherwise, user will be called by its name 
         eriSpeaks('greetings, {0}'.format(name))
 
     while 1:
