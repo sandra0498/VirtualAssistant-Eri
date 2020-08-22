@@ -79,13 +79,14 @@ def searchWeb(choice):
 
 """
 prompts the user for a specific subject to search 
+@:param path 
 """
-def searchSubject(url):
+def searchSubject(path):
     erispeaks('would you like to search for anything specific?')
     sub = getVoice()
     if sub == 0:
         erispeaks("I'll search up the site anyway")
-        web.open(url)
+        web.open(path)
 
     signalsforNoSub = ['no', 'none', 'no thank you']
 
@@ -94,18 +95,18 @@ def searchSubject(url):
     if any(word in sub for word in signalsforNoSub):
         pass
     else:
-        if 'youtube' in url:
+        if 'youtube' in path:
             ext = 'results?search_query='
-            url += ext
-            url += sub
-        elif 'bing' or 'google' in url:
+            path += ext
+            path += sub
+        elif 'bing' or 'google' in path:
             Ext = 'search?q='
-            url += Ext
-            url += sub
+            path += Ext
+            path += sub
 
-        print('your complete url is {0}'.format(url))
+        print('your complete url is {0}'.format(path))
 
-    web.open(url)
+    web.open(path)
 
 
 """
