@@ -43,12 +43,18 @@ def getVoice():
             return 0
 
 
+"""
+Gets the formatted string of the current time 
+"""
 def getTime():
     local = time.localtime()
     currentTime = time.strftime("%H:%M:%S", local)
     eriSpeaks("The current time is {0}".format(currentTime))
 
 
+"""
+Gets the formatted string of the current date 
+"""
 def getDate():
     today = date.today()
     formatDate = today.strftime("%B %d, %Y")
