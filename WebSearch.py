@@ -55,9 +55,8 @@ def erispeaks(phrase):
 
 
 """
-gets the url path of the user's choice 
-@:param choice - indicates what web search engine 
-                user wants to use 
+gets the domain name  
+@:param choice - the domain name   
 """
 def searchWeb(choice):
     print('your choice is {0}'.format(choice))
@@ -79,7 +78,7 @@ def searchWeb(choice):
 
 """
 prompts the user for a specific subject to search 
-@:param path 
+@:param path - the particular subject being searched
 """
 def searchSubject(path):
     erispeaks('would you like to search for anything specific?')
