@@ -10,6 +10,7 @@ Functions include:
 -Giving date/time
 -Shutdown computer 
 ~~~~~~~~~
+**Functions are executed through speech recognition, input is received through the user's microphone **
 
 ~~~~~~
 Packages/ modules include: 
