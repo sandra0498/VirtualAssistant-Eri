@@ -11,3 +11,12 @@ Functions include:
 -Shutdown computer 
 ~~~~~~~~~
 
+~~~~~~
+Packages/ modules include: 
+--Speech recognition
+--googletrans API
+--websearch
+--pyttsx3 (text-to-speech)
+--time
+--OS
+--datetime
