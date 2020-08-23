@@ -1,3 +1,11 @@
+"""
+@author: Sandra Chavez
+Purpose: This program represents a voice assistant that takes the 
+        user's audio input to execute its functions 
+@:argument audio input via user's microphone 
+"""
+
+
 import Translate as t  # importing the translation feature
 import screenshot as sc
 import WebSearch as WS
@@ -68,13 +76,13 @@ def main():
     eriSpeaks('Hello, my name is Eréndira, but for short, call me Eri')
     eriSpeaks('what is your name?')
     name = getVoice()
-    
-    # if input is audible, user will be called human 
+
+    # if input is audible, user will be called human
     if name == 0:
         name = 'human'
         eriSpeaks("I couldn't get your name, greetings anyways")
     else:
-        # otherwise, user will be called by its name 
+        # otherwise, user will be called by its name
         eriSpeaks('greetings, {0}'.format(name))
 
     while 1:
