@@ -1,8 +1,8 @@
 """
 @author: Sandra Chavez
-Purpose: This program represents a voice assistant that takes the 
-        user's audio input to execute its functions 
-@:argument audio input via user's microphone 
+Purpose: This program represents a voice assistant that takes the
+        user's audio input to execute its functions
+@:argument audio input via user's microphone
 """
 
 
@@ -70,7 +70,9 @@ def getDate():
     eriSpeaks("The current date is {0}".format(formatDate))
 
 
-
+def openProgram(choice):
+    directory = ""
+    # still in progress 
 
 def main():
     eriSpeaks('Hello, my name is Eréndira, but for short, call me Eri')
@@ -91,9 +93,12 @@ def main():
 
         eri_command = getVoice()
 
+        # if eri gets no input, it continues the loop and asks again
         if eri_command == 0:
             continue
 
+        # once it gets the command, it turns input into string
+        # and turns lowercase 
         eri_command = str(eri_command).lower()
 
         if 'bye' in eri_command:
