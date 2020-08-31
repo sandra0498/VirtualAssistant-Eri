@@ -7,10 +7,10 @@ Purpose: This program represents a voice assistant that takes the
 
 
 import Translate as t  # importing the translation feature
-import screenshot as sc
-import WebSearch as WS
-import speech_recognition as SR
-import pyttsx3 as ts
+import screenshot as sc  # importing the screenshot class
+import WebSearch as WS  # will allow us to search any site
+import speech_recognition as SR  # importing the speech recognition module
+import pyttsx3 as ts  # will allow the text to speech feature
 import time
 import os
 from datetime import date
@@ -72,7 +72,7 @@ def getDate():
 
 def openProgram(choice):
     directory = ""
-    # still in progress 
+    # still in progress
 
 def main():
     eriSpeaks('Hello, my name is Eréndira, but for short, call me Eri')
@@ -98,7 +98,7 @@ def main():
             continue
 
         # once it gets the command, it turns input into string
-        # and turns lowercase 
+        # and turns lowercase
         eri_command = str(eri_command).lower()
 
         if 'bye' in eri_command:
