@@ -75,7 +75,7 @@ def openProgram(choice):
     directory = "C:/Program Files"
 
     # still in progress
-    os.open()
+    os.open(directory)
 
 def main():
     eriSpeaks('Hello, my name is Eréndira, but for short, call me Eri')
