@@ -71,8 +71,11 @@ def getDate():
 
 
 def openProgram(choice):
-    directory = ""
+    # path to the program
+    directory = "C:/Program Files"
+
     # still in progress
+    os.open()
 
 def main():
     eriSpeaks('Hello, my name is Eréndira, but for short, call me Eri')
