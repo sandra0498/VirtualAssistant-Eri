@@ -14,7 +14,7 @@ import pyttsx3 as ts  # will allow the text to speech feature
 import time
 import os
 from datetime import date
-import subprocess 
+import subprocess
 
 
 engine = ts.init()
@@ -78,6 +78,11 @@ def openProgram(choice):
     # still in progress
     subprocess.call([directory])
 
+def printprogramchoices():
+    choices = ""
+    print(choices)
+    
+    
 def main():
     eriSpeaks('Hello, my name is Eréndira, but for short, call me Eri')
     eriSpeaks('what is your name?')
