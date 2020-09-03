@@ -11,10 +11,10 @@ import screenshot as sc  # importing the screenshot class
 import WebSearch as WS  # will allow us to search any site
 import speech_recognition as SR  # importing the speech recognition module
 import pyttsx3 as ts  # will allow the text to speech feature
-import time
+import time  # will allow us to format the string for time 
 import os
 from datetime import date
-import subprocess
+import subprocess   # this allows us to run external programs
 
 
 engine = ts.init()
@@ -81,7 +81,7 @@ def openProgram(choice):
 def printprogramchoices():
     choices = ""
     print(choices)
-    
+
     
 def main():
     eriSpeaks('Hello, my name is Eréndira, but for short, call me Eri')
