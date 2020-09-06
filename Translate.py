@@ -128,7 +128,7 @@ def speakTranslation(translation, language):
         engine.setProperty('voice', MVoice)
 
     eriSpeaks(translation.text)
-    
+
     if language not in pronun:
         print("The prounciation is {0}".format(translation.pronunciation))
 
@@ -149,7 +149,7 @@ def main():
         command = str(command).lower()
 
         if any(word in command for word in exits):
-            eriSpeaks('okay, goodbye!')
+            eriSpeaks('Finished translating')
             break
 
         getTranslation(command)
