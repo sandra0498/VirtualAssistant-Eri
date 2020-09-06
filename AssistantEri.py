@@ -129,8 +129,8 @@ def main():
 
         if 'time left' and 'battery' in eri_command:
             getBatteryTimeLeft()
-            
-        if 'battery' in eri_command:
+
+        if 'battery' and 'percent' in eri_command:
             getBatteryPercent()
 
         if 'current time' in eri_command:
