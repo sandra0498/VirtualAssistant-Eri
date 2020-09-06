@@ -15,6 +15,7 @@ import time  # will allow us to format the string for time
 import os
 from datetime import date
 import subprocess   # this allows us to run external programs
+import psutil  # will allow us to get the laptop battery percentage
 
 
 engine = ts.init()
@@ -82,7 +83,12 @@ def printprogramchoices():
     choices = ""
     print(choices)
 
-    
+def getBatteryPercent():
+    battery = psutil.sensors_battery()
+    display = "Currently, your battery is at {0} percent".format(battery.percent)
+    eriSpeaks(display)
+
+
 def main():
     eriSpeaks('Hello, my name is Eréndira, but for short, call me Eri')
     eriSpeaks('what is your name?')
