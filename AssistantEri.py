@@ -16,9 +16,11 @@ import os
 from datetime import date
 import subprocess   # this allows us to run external programs
 import psutil  # will allow us to get the laptop battery percentage
+import datetime as dt
 
 
 engine = ts.init()
+battery = psutil.sensors_battery()
 
 # default voice
 voice_ID = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0'
@@ -84,9 +86,14 @@ def printprogramchoices():
     print(choices)
 
 def getBatteryPercent():
-    battery = psutil.sensors_battery()
     display = "Currently, your battery is at {0} percent".format(battery.percent)
     eriSpeaks(display)
+
+def getBatteryTimeLeft():
+    timeLeft = str(dt.timedelta(seconds=battery.secsleft))
+    display = "You have {0} left in battery".format(timeLeft)
+    eriSpeaks(display)
+
 
 
 def main():
@@ -122,7 +129,7 @@ def main():
 
         if 'battery' in eri_command:
             getBatteryPercent()
-            
+
         if 'current time' in eri_command:
             getTime()
 
