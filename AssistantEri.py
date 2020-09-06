@@ -126,7 +126,10 @@ def main():
         if 'bye' in eri_command:
             eriSpeaks('goodbye {0}, it was a pleasure'.format(name))
             break
-
+        
+        if 'time left' and 'battery' in eri_command:
+            getBatteryTimeLeft()
+            
         if 'battery' in eri_command:
             getBatteryPercent()
 
