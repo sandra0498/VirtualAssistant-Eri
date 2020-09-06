@@ -16,7 +16,7 @@ import os
 from datetime import date
 import subprocess   # this allows us to run external programs
 import psutil  # will allow us to get the laptop battery percentage
-import datetime as dt
+import datetime as dt  # importing this datetime for battery time left
 
 
 engine = ts.init()
@@ -126,7 +126,7 @@ def main():
         if 'bye' in eri_command:
             eriSpeaks('goodbye {0}, it was a pleasure'.format(name))
             break
-        
+
         if 'time left' and 'battery' in eri_command:
             getBatteryTimeLeft()
             
