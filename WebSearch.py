@@ -129,7 +129,7 @@ def main():
         command = str(command).lower()
 
         if any(word in command for word in exits):
-            erispeaks('okay, goodbye!')
+            erispeaks('Finished with web search')
             break
 
         searchWeb(command)
