@@ -81,17 +81,26 @@ def openProgram(choice):
     # still in progress
     subprocess.call([directory])
 
+
+"""
+Prints the different computer programs
+the user can open 
+"""
 def printprogramchoices():
     choices = ""
     print(choices)
 
+
+"""
+gets the battery percentage of the computer 
+"""
 def getBatteryPercent():
     display = "Currently, your battery is at {0} percent".format(battery.percent)
     eriSpeaks(display)
 
 def getBatteryTimeLeft():
     timeLeft = str(dt.timedelta(seconds=battery.secsleft))
-    display = "You have {0} left in battery".format(timeLeft)
+    display = "You have {0} left in battery".format(timeLeft)  # fix this 
     eriSpeaks(display)
 
 
