@@ -104,6 +104,10 @@ def getBatteryTimeLeft():
     eriSpeaks(display)
 
 
+def getFullTime(seconds):
+    minutes,seconds = divmod(seconds, 60)
+    hours,minutes = divmod(minutes,60)
+    return "{}:{}:{}".format(hours, minutes, seconds)
 
 def main():
     eriSpeaks('Hello, my name is Eréndira, but for short, call me Eri')
