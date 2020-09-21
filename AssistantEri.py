@@ -98,12 +98,19 @@ def getBatteryPercent():
     display = "Currently, your battery is at {0} percent".format(battery.percent)
     eriSpeaks(display)
 
+
+"""
+gets the time left for battery 
+"""
 def getBatteryTimeLeft():
     timeLeft = str(dt.timedelta(seconds=battery.secsleft))
-    display = "You have {0} left in battery".format(timeLeft)  # fix this 
+    display = "You have {0} left in battery".format(getFullTime(battery.secsleft))
     eriSpeaks(display)
 
 
+"""
+
+"""
 def getFullTime(seconds):
     minutes,seconds = divmod(seconds, 60)
     hours,minutes = divmod(minutes,60)
