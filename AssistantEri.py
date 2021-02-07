@@ -103,7 +103,7 @@ def getBatteryPercent():
 gets the time left for battery 
 """
 def getBatteryTimeLeft():
-    timeLeft = str(dt.timedelta(seconds=battery.secsleft))
+    timeLeft = str(dt.timedelta(seconds=battery.secsleft))  # have to fix the time formatting 
     display = "You have {0} left in battery".format(getFullTime(battery.secsleft))
     eriSpeaks(display)
 
@@ -143,7 +143,7 @@ def main():
         # and turns lowercase
         eri_command = str(eri_command).lower()
 
-        if 'bye' in eri_command:
+        if 'bye' or 'goodbye' in eri_command:
             eriSpeaks('goodbye {0}, it was a pleasure'.format(name))
             break
 
