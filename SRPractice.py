@@ -5,16 +5,19 @@ import pyttsx3 as ts
 engine = ts.init()
 
 # changing the voice
-voice_ID = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0'
+voice_ID = 'com.apple.speech.synthesis.voice.daniel'
 engine.setProperty('voice', voice_ID)
 variable = SR.Recognizer()
 
 with SR.Microphone() as source:
     print('speak now...')
     audioInput = variable.record(source, duration=7)
+    print(audioInput)
 
     try:
-        textOutput = variable.recognize_google(audioInput)
+        print("goes into try statement ")
+        
+        textOutput = variable.recognize_google_cloud(audioInput)
         print('text converted from audio: \n')
         print(textOutput)
         engine.say("You said: {0} ".format(textOutput))
@@ -23,3 +26,4 @@ with SR.Microphone() as source:
 
     except Exception:
         print("Couldn't process the audio input ")
+

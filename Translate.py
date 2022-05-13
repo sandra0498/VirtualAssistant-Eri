@@ -136,7 +136,7 @@ def speakTranslation(translation, language):
 def main():
     while 1:
         # default voice
-        voice_ID = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0'
+        voice_ID = 'com.apple.speech.synthesis.voice.daniel'
         engine.setProperty('voice', voice_ID)
 
         eriSpeaks('what would you like to translate?')
